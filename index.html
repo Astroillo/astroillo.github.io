@@ -14,17 +14,80 @@
 
 
         <style>
+            .caja-actualizaciones {
+                width: 33%;
+                border: 1px solid black;
+                padding: 10px;
+                margin: 0;
+            }
+
             .actualizacion{
                 color:gray;
                 font-style:italic;
             }
-            .tabulacion:first-letter {
+            .tabulacion {
 	        margin-left: 105px;
             }
+
+            html {
+                background-color: lightyellow;
+                 font-size: 15px;
+            }
+
+            ul {
+                background: rgb(224, 178, 178);
+                padding: 10px;
+                border: 1px solid black;
+                margin-right: 15px;
+                margin-left: 105px;
+            }
+
+            li {
+                margin-left: 20px;
+            }
+
+            div{
+                border: 1px solid black;
+            }
         </style>
+        <script>
+            window.addEventListener("load", function() {
+              const list = document.createElement('ul');
+              const info = document.createElement('p');
+              const html = document.querySelector('html');
+              const info2 = document.createElement('p');
+        
+              info.textContent = 'Cuando hagas click en la pagina, en cualquier lado, te va a decir pa añadir algo a la lista';
+              info2.textContent= 'yeah tusabe'
+              info.style.marginLeft = '105px'; // Ajusta el valor según tus necesidades
+              info2.style.marginLeft = '105px'; // Ajusta el valor según tus necesidades
+              
+
+              div6.appendChild(info);
+              div6.appendChild(list);
+              div6.appendChild(info2);
+              
+              
+        
+              div6.onclick = function() {
+                const listItem = document.createElement('li');
+                const listContent = prompt('What content do you want the list item to have?');
+                listItem.textContent = listContent;
+                list.appendChild(listItem);
+        
+                listItem.onclick = function(e) {
+                  e.stopPropagation();
+                  const listContent = prompt('Enter new content for your list item');
+                  this.textContent = listContent;
+                }
+              }
+            });
+          </script>
     </head>
     <body>
+        
         <h1>Bienvenido Astro</h1>
+        <div class="caja-actualizaciones">
         <p class="actualizacion">18/02/25 15:40 <u>Primera Actualización</u></p>
         <p class="tabulacion">Subido desde Github</p>
 
@@ -39,6 +102,12 @@
                                 será visible al buscarla en google</p>
 
         <p class="actualizacion">19/02/25 21:22 <u>5ta Actualización</u></p>
-        <p class="tabulacion"><a href="https://astroillo.github.io" target="_blank">astroillo.github.io</a</p>
+        <p class="tabulacion"><a href="https://astroillo.github.io" target="_blank">astroillo.github.io</a></p>
+    
+        <div id="div6">
+            <p class="actualizacion">19/02/25 23:18 <u>6ta Actualización</u></p>
+            <p class="tabulacion">Añadimos JS a la pagina bro</p>
+        </div>
+        </div>
     </body>
 </html>
