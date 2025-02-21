@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            }
+            
+            body > header {
+            background-color: #e35e04;
+            color: rgba(238, 226, 226, 0.849);
+            text-align: center;
+            padding: 10px 0;
+            }
+            h1, h2 {
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            }
+
+              /* Estilos para el nav */
+            nav {
+                background-color: #222;
+                padding: 10px 0;
+                border: #000 1px solid;
+                margin: 0px 10px;
+            }
+
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;  /* Hace que los elementos estén en fila */
+                justify-content: center; /* Centra los elementos */
+            }
+            nav ul li {
+                 margin: 0 15px;
+            }
+
+            nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            }
+
+            nav ul li a:hover {
+            background-color: #d7d693;
+            border-radius: 5px;
+            color: black;
+        }
+            #articulo1 {
+                background-color: #e5c4a6;
+                color: white;
+                text-align: center;
+                padding: 10px 0;
+                text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+            }
+
+            article {
+            margin-bottom: 20px;
+        }
+
+        article header {
+            background-color: #222;
+            color: white;
+            padding: 10px;
+        }
+
+        article section {
+            padding: 15px;
+        }
+
+        /* Estilos para las secciones adicionales */
+        main section {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border-left: 5px solid #333;
+        }
+
+        aside section {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 0px;
+            border-left: 5px solid #333;
+            border-top: 5px solid #333;
+            border-top-left-radius: 10px;
+            font-size: 14px;
+        }
+        section h3 {
+            margin: 0;
+        }
+
+        aside section h3 {
+            background-color: #333;
+            color: white;
+            margin: 0;
+        }
+        .container {
+            display: flex; /* Hace que main y aside estén en la misma línea */
+            justify-content: space-between; /* Espaciado entre los elementos */
+            align-items: flex-start; /* Alinea los elementos arriba */
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        main {
+            width: 70%; /* Ocupa la mayor parte del espacio */
+              background: white;
+             padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        aside {
+            width: 25%; /* Espacio más pequeño para el aside */
+            background-color: #f9f9f9;
+            padding: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        </style>
+
+    </head>
+    <body>
+        <header>
+            <h1>Noticias Astroillo</h1>
+            <h2>Noticias del mundo en la palma de tu mano</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="multimedia.html">Multimedia</a></li>
+                    <li><a href="juegos.html">Juegos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+        <main>
+            <article>
+                <header >
+                    <h3>La secuela de Cyberpunk 2077 quiere ser muy ambiciosa</h3>
+                </header>
+                <section>
+                    <image src="images/v.png" alt="Imagen de Cyberpunk 2077" width="100%">
+                <p>Este dato se ha descubierto en una oferta de trabajo de CD Projekt RED (vía VGC). 
+                    De acuerdo con la descripción del puesto, los creadores de The Witcher 3 están buscando a
+                     un diseñador jefe de encuentros que se una al equipo de desarrollo de Project Orion
+                      (nombre en clave de la secuela de Cyberpunk 2077) para, principalmente, "ayudar a formular
+                       soluciones y crear encuentros jugables memorables que ilusionen y emocionen a nuestros jugadores".
+                    </p>
+                    <p>Lo más destacado del puesto se observa en el apartado de Responsabilidades Diarias;
+                     el típico listado que incluye las tareas de las que se encargará el futuro diseñador
+                      jefe de encuentros de CD Projekt RED. Según se indica, este profesional "trabajará
+                       en estrecha colaboración con el equipo de diseño de sistemas para crear el sistema 
+                       de multitudes más realista y reactivo [que se haya visto] en cualquier juego hasta 
+                       la fecha". La oferta no incluye más detalles al respecto, así que no sabemos si CD 
+                       Projekt RED trabaja en NPCs con una amplia gama de diálogos o en ciudadanos que reaccionen
+                        de forma sensata a los acontecimientos que suceden a su alrededor. Aún así, es una prueba
+                         de que la compañía quiere elevar el listón con su RPG futurista.</p>
+                </section>
+
+                
+            </article>
+
+            <section>
+                <h3>📢 Tecnología: Avances en Inteligencia Artificial</h3>
+                <p>Las empresas líderes en tecnología han presentado sus innovaciones más recientes en IA, prometiendo revolucionar la industria...</p>
+            </section>
+    
+            <section>
+                <h3>⚽ Deportes: Final de la Champions League</h3>
+                <p>El enfrentamiento entre los dos gigantes del fútbol europeo ha dejado a los fanáticos sin aliento. Con un gol en los últimos minutos...</p>
+            </section>
+        </main>
+
+        <aside>
+            <section>
+                <h3>📊 Estadísticas Destacadas</h3>
+                <p>Posesión: 55% - 45%</p>
+                <p>Tiros a puerta: 8 - 5</p>
+                <p>Faltas: 12 - 8</p>
+            </section>
+            <section>
+                <h3>🔗 Enlaces de interés</h3>
+                <ul>
+                    <li><a href="#">Clasificación La Liga</a></li>
+                    <li><a href="#">Goleadores</a></li>
+                    <li><a href="#">Próximos partidos</a></li>
+                </ul>
+            </section>
+        </aside>
+        </div>
+
+        <footer>
+            <p>© 2021 Astroillo Web</p>
+        </footer>
+    </body>
+</html>
