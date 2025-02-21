@@ -75,48 +75,34 @@
             }
         </style>
 
-        <script>
-            window.addEventListener("load", function() {
-                // Obtener el contenedor para los enlaces
-                const linksContainer = document.getElementById('links-container');
-
-                // Crear enlaces dinámicos
-                const enlaces = [
-                    { href: './noticias.html', text: 'Noticias' }
-                ];
-
-                // Generar los enlaces
-                enlaces.forEach(enlace => {
-                    const listItem = document.createElement('li');
-                    const link = document.createElement('a');
-                    link.href = enlace.href;
-                    link.textContent = enlace.text;
-
-                    // Event listener para cargar el contenido en el div
-                    link.addEventListener('click', function (e) {
-                        e.preventDefault(); // Evita que el enlace se abra normalmente
-                        loadContent(link.href); // Llama a la función para cargar el contenido
-                    });
-
-                    listItem.appendChild(link);
-                    linksContainer.appendChild(listItem);
-                });
-
-                // Función para cargar el contenido en el div
-                function loadContent(url) {
-                    const contentContainer = document.getElementById('content'); // Contenedor donde se mostrará el contenido
-                    fetch(url)
-                        .then(response => response.text())
-                        .then(data => {
-                            contentContainer.innerHTML = data; // Cambiar el contenido del contenedor
-                        })
-                        .catch(error => {
-                            console.error('Error al cargar el contenido:', error);
-                            contentContainer.innerHTML = 'Error al cargar el contenido';
-                        });
-                }
-            });
-        </script>
+<script>
+    window.addEventListener("load", function() {
+      const linksContainer = document.getElementById('links-container');
+      
+      // Función para cargar el contenido en el div
+      function loadContent(url) {
+        fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('links-container').innerHTML = data; // Reemplazar el contenido del div
+          })
+          .catch(error => {
+            console.error('Error al cargar el contenido:', error);
+            document.getElementById('links-container').innerHTML = 'Error al cargar el contenido';
+          });
+      }
+  
+      // Event listener para los enlaces
+      const enlaces = document.querySelectorAll('a');
+      enlaces.forEach(enlace => {
+        enlace.addEventListener('click', function (e) {
+          e.preventDefault(); // Evita que el enlace se abra normalmente
+          loadContent(enlace.href); // Llama a la función para cargar el contenido
+        });
+      });
+    });
+  </script>
+  
     </head>
     <body>
 
