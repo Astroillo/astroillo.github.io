@@ -5,36 +5,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Astroillo Web</title>
         <meta name="description" content="La pagina web de Astroillo, donde ira subiendo su aprendizaje" />
-        <meta property="og:image"
-              content="https://Astroillo.github.io/astroillo/images/blitz-icon.jpg" />
-        <meta property="og:description"
-              content="La Web de Astroillo" />
+        <meta property="og:image" content="https://Astroillo.github.io/astroillo/images/blitz-icon.jpg" />
+        <meta property="og:description" content="La Web de Astroillo" />
         <meta property="og:title" content="Astroillo Web" />
         <link rel="shortcut icon" href="images/blitz-icon.ico" type="image/x-icon" />
 
-
         <style>
+            .container {
+                display: flex; /* Coloca los dos div en fila */
+                height: 100vh; /* Establece la altura completa de la pantalla */
+            }
+
             .caja-actualizaciones {
                 width: 33%;
-                border: 1px solid black;
                 padding: 10px;
-                margin: 0;
+                border-right: 1px solid #000; /* Separación entre los divs */
+                overflow-y: auto;
             }
 
-            .actualizacion{
-                color:gray;
-                font-style:italic;
+            .actualizacion {
+                color: gray;
+                font-style: italic;
             }
+
             .tabulacion {
-	        margin-left: 105px;
+                margin-left: 105px;
+            }
+
+            .links-container {
+                flex: 1; /* Toma todo el espacio restante */
+                padding: 20px;
+                overflow-y: auto;
+                background-color: lightgray; /* Fondo para el div derecho */
             }
 
             html {
                 background-color: lightyellow;
-                 font-size: 15px;
+                font-size: 15px;
             }
 
-            ul {
+            #div6 ul {
                 background: rgb(224, 178, 178);
                 padding: 10px;
                 border: 1px solid black;
@@ -42,72 +52,116 @@
                 margin-left: 105px;
             }
 
-            li {
+            #div6 li {
                 margin-left: 20px;
             }
 
-            div{
+            .links-container ul {
+                padding: 0;
+                list-style: none;
+            }
+
+            .links-container li {
+                margin: 10px 0;
+            }
+
+            .links-container a {
+                text-decoration: none;
+                color: #1a73e8;
+            }
+
+            div {
                 border: 1px solid black;
             }
         </style>
+
         <script>
             window.addEventListener("load", function() {
-              const list = document.createElement('ul');
-              const info = document.createElement('p');
-              const html = document.querySelector('html');
-              const info2 = document.createElement('p');
-        
-              info.textContent = 'Cuando hagas click en la pagina, en cualquier lado, te va a decir pa añadir algo a la lista';
-              info2.textContent= 'yeah tusabe'
-              info.style.marginLeft = '105px'; // Ajusta el valor según tus necesidades
-              info2.style.marginLeft = '105px'; // Ajusta el valor según tus necesidades
-              
+                // Obtener el contenedor para los enlaces
+                const linksContainer = document.getElementById('links-container');
 
-              div6.appendChild(info);
-              div6.appendChild(list);
-              div6.appendChild(info2);
-              
-              
-        
-              div6.onclick = function() {
-                const listItem = document.createElement('li');
-                const listContent = prompt('What content do you want the list item to have?');
-                listItem.textContent = listContent;
-                list.appendChild(listItem);
-        
-                listItem.onclick = function(e) {
-                  e.stopPropagation();
-                  const listContent = prompt('Enter new content for your list item');
-                  this.textContent = listContent;
+                // Crear enlaces dinámicos
+                const enlaces = [
+                    { href: './noticias.html', text: 'Noticias' }
+                ];
+
+                // Generar los enlaces
+                enlaces.forEach(enlace => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = enlace.href;
+                    link.textContent = enlace.text;
+
+                    // Event listener para cargar el contenido en el div
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault(); // Evita que el enlace se abra normalmente
+                        loadContent(link.href); // Llama a la función para cargar el contenido
+                    });
+
+                    listItem.appendChild(link);
+                    linksContainer.appendChild(listItem);
+                });
+
+                // Función para cargar el contenido en el div
+                function loadContent(url) {
+                    const contentContainer = document.getElementById('content'); // Contenedor donde se mostrará el contenido
+                    fetch(url)
+                        .then(response => response.text())
+                        .then(data => {
+                            contentContainer.innerHTML = data; // Cambiar el contenido del contenedor
+                        })
+                        .catch(error => {
+                            console.error('Error al cargar el contenido:', error);
+                            contentContainer.innerHTML = 'Error al cargar el contenido';
+                        });
                 }
-              }
             });
-          </script>
+        </script>
     </head>
     <body>
-        
+
         <h1>Bienvenido Astro</h1>
-        <div class="caja-actualizaciones">
-        <p class="actualizacion">18/02/25 15:40 <u>Primera Actualización</u></p>
-        <p class="tabulacion">Subido desde Github</p>
 
-        <p class="actualizacion">18/02/25 15:48 <u>Segunda Actualización</u></p>
-        <p class="tabulacion">Subido desde Git por comandos BASH</p>
-    
-        <p class="actualizacion">18/02/25 16:59 <u>Tercera Actualización</u></p>
-        <p class="tabulacion">Comprobar</p>
+        <div class="container">
+            <div class="caja-actualizaciones">
+                <p class="actualizacion">18/02/25 15:40 <u>Primera Actualización</u></p>
+                <p class="tabulacion">Subido desde Github</p>
 
-        <p class="actualizacion">19/02/25 20:44 <u>Cuarta Actualización</u></p>
-        <p class="tabulacion">Le he puesto descripcion a la pagina, 
-                                será visible al buscarla en google</p>
+                <p class="actualizacion">18/02/25 15:48 <u>Segunda Actualización</u></p>
+                <p class="tabulacion">Subido desde Git por comandos BASH</p>
 
-        <p class="actualizacion">19/02/25 21:22 <u>5ta Actualización</u></p>
-        <p class="tabulacion"><a href="https://astroillo.github.io" target="_blank">astroillo.github.io</a></p>
-    
-        <div id="div6">
-            <p class="actualizacion">19/02/25 23:18 <u>6ta Actualización</u></p>
-            <p class="tabulacion">Añadimos JS a la pagina bro</p>
+                <p class="actualizacion">18/02/25 16:59 <u>Tercera Actualización</u></p>
+                <p class="tabulacion">Comprobar</p>
+
+                <p class="actualizacion">19/02/25 20:44 <u>Cuarta Actualización</u></p>
+                <p class="tabulacion">Le he puesto descripcion a la pagina, será visible al buscarla en google</p>
+
+                <p class="actualizacion">19/02/25 21:22 <u>5ta Actualización</u></p>
+                <p class="tabulacion"><a href="https://astroillo.github.io" target="_blank">astroillo.github.io</a></p>
+
+                <div id="div6">
+                    <p class="actualizacion">19/02/25 23:18 <u>6ta Actualización</u></p>
+                    <p class="tabulacion">Añadimos JS a la pagina bro</p>
+                </div>
+
+                <p class="actualizacion">21/02/25 3:02 <u>7ta Actualización</u></p>
+                <p class="tabulacion">Incrustamos web en web, o lo intentamos</a></p>
+
+
+            </div>
+
+            <div class="links-container" id="links-container">
+                <h2>Selecciona una página para ver el contenido</h2>
+                <!-- Aquí se añadirán los enlaces dinámicamente -->
+            </div>
+
         </div>
+
+        <!-- Contenedor donde se cargará el contenido -->
+        <div id="content">
+            <p>Selecciona un enlace para ver el contenido de la página.</p>
+            
         </div>
+
     </body>
 </html>
